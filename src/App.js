@@ -1,13 +1,13 @@
 import "./App.css";
-import Card from "./components/Card/Card.js";
+import CardList from "./components/CardList/CardList";
 
 function App() {
   return (
     <>
       <div className="App">
-        <header className="header">Github Cards</header>
+        <header className="header">GitHub Cards</header>
       </div>
-      <Card />;
+      <CardList />
     </>
   );
 }
