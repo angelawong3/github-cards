@@ -10,6 +10,7 @@ class Form extends React.Component {
       `https://api.github.com/users/${this.state.username}`
     );
     this.props.onSubmit(getGitHubUser.data);
+    this.setState({ username: "" });
   };
 
   render() {
