@@ -10,7 +10,7 @@ class Card extends React.Component {
         <img src={profile.avatar_url} alt="profile-pic" />
         <div className="info">
           <div className="name">{profile.name}</div>
-          <div className="company">{profile.company}</div>
+          <div className="company">{profile.bio}</div>
         </div>
       </div>
     );

@@ -1,10 +1,15 @@
 import React from "react";
+import "./Form.css";
+import axios from "axios";
 
 class Form extends React.Component {
-  usernameInput = React.createRef();
-  handleFormSubmit = (e) => {
+  state = { username: "" };
+  handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(this.usernameInput.current.value);
+    const getGitHubUser = await axios.get(
+      `https://api.github.com/users/${this.state.username}`
+    );
+    this.props.onSubmit(getGitHubUser.data);
   };
 
   render() {
@@ -12,8 +17,9 @@ class Form extends React.Component {
       <form onSubmit={this.handleFormSubmit}>
         <input
           type="text"
+          value={this.state.username}
+          onChange={(e) => this.setState({ username: e.target.value })}
           placeholder="GitHub username"
-          ref={this.usernameInput}
           required
         />
         <button>Add Profile Card</button>

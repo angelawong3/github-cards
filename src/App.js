@@ -8,17 +8,19 @@ const testData = [
     name: "Anya Forger",
     avatar_url:
       "https://www.themarysue.com/wp-content/uploads/2022/05/Anya-smile.jpg",
-    company: "Spy x Family",
+    bio: "Spy x Family",
   },
   {
-    name: "Sophie Alpert",
-    avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4",
-    company: "Humu",
+    name: "Loid Forger",
+    avatar_url:
+      "https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/08/spy-x-family-loid-smiling.jpg",
+    bio: "Spy x Family",
   },
   {
-    name: "Sebastian Markbåge",
-    avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4",
-    company: "Facebook",
+    name: "Yor Forger",
+    avatar_url:
+      "https://leosigh.com/wp-content/uploads/2022/11/Yor-in-Episode-19-rushing-to-take-Anyas-gym-clothes.jpg",
+    bio: "Spy x Family",
   },
 ];
 
@@ -30,7 +32,13 @@ class App extends React.Component {
   //   };
   // }
 
-  state = { profiles: testData };
+  state = { profiles: [] };
+
+  addNewProfile = (profileData) => {
+    this.setState((prevState) => ({
+      profiles: [...prevState.profiles, profileData],
+    }));
+  };
 
   render() {
     return (
@@ -38,7 +46,7 @@ class App extends React.Component {
         <div className="App">
           <header className="header">GitHub Cards</header>
         </div>
-        <Form />
+        <Form onSubmit={this.addNewProfile} />
         <CardList profile={this.state.profiles} />
       </>
     );
